@@ -11,6 +11,7 @@ module.exports = function(grunt) {
           [
             'js/libs/jquery.min.js',
             'js/libs/module.min.js',
+            'materialize/js/materialize.min.js',
             'js/index.js'
           ]
         }
@@ -27,6 +28,7 @@ module.exports = function(grunt) {
         files: {
           'dist/css/all.min.css': 
           [
+            'materialize/css/materialize.min.css',
             'css/style.css'
           ]
         }
