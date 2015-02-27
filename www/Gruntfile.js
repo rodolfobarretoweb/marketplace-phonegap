@@ -25,6 +25,7 @@ module.exports = function(grunt) {
             'js/libs/module.min.js',
             'js/libs/bootstrap.min.js',
             'js/libs/handlebars.min.js',
+            'js/helpers.js',
             'js/templates.js',
             'js/index.js',
             'js/base.js',

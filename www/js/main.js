@@ -1,10 +1,21 @@
 Module('Main', function(Main){
+  var base = new Base();
 
   Main.fn.initialize = function() {
-    var base = new Base();
+    this.getShoppings();
+  };
 
-    base.template('main.tpl', '');
-  }
+  Main.fn.getShoppings = function() {
+    $.ajax({
+      url      : base.setUrlAPI('shopping'),
+      type     : 'get',
+      dataType : 'json',
+      cache    : true,
+      success  : function(json) {
+        base.template('main.tpl', json);
+      }
+    });
+  };
 });
 
 Module.run('Main');
