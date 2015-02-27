@@ -4,6 +4,18 @@ module.exports = function(grunt) {
   var gruntConfig = {
     pkg: grunt.file.readJSON('package.json'),
 
+    handlebars: {
+      options: {
+        namespace: "TPL"
+      },
+
+      all: {
+        files: {
+          "js/templates.js" : ["views/**/*.tpl"]
+        }
+      }
+    },
+
     uglify: {
       my_target: {
         files: {
@@ -11,8 +23,12 @@ module.exports = function(grunt) {
           [
             'js/libs/jquery.min.js',
             'js/libs/module.min.js',
-            'materialize/js/materialize.min.js',
-            'js/index.js'
+            'js/libs/bootstrap.min.js',
+            'js/libs/handlebars.min.js',
+            'js/templates.js',
+            'js/index.js',
+            'js/base.js',
+            'js/main.js'
           ]
         }
       }
@@ -28,7 +44,8 @@ module.exports = function(grunt) {
         files: {
           'dist/css/all.min.css': 
           [
-            'materialize/css/materialize.min.css',
+            'css/libs/bootstrap.min.css',
+            'css/libs/bootstrap-theme.min.css',
             'css/style.css'
           ]
         }
@@ -41,7 +58,8 @@ module.exports = function(grunt) {
   // load plugins
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-handlebars')
 
   // tasks
-  grunt.registerTask('default', ['uglify','cssmin']);
+  grunt.registerTask('default', ['handlebars', 'uglify','cssmin']);
 };

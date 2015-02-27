@@ -5,13 +5,13 @@
         Todos os shoppings do Brasil em um só lugar
     </description>
     <author email="rodolfobarretoweb@gmail.com" href="http://secondjob.com.br">
-        PhoneGap Team
+        Secondjob
     </author>
-    <content src="index.html" />
+    <content src="app.html" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
-    <preference name="fullscreen" value="true" />
+    <preference name="fullscreen" value="false" />
     <preference name="webviewbounce" value="true" />
     <preference name="prerendered-icon" value="true" />
     <preference name="stay-in-webview" value="false" />
