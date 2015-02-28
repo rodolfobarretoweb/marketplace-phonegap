@@ -10,6 +10,10 @@ Module('Base', function(Base){
     $('.content').html(template(data));
   };
 
+  Base.fn.deviceReady = function(callback) {
+    document.addEventListener("deviceready", callback, false);
+  };
+
   Base.fn.setUrlAPI = function(target){
     return BASE_URL_API + target;
   };

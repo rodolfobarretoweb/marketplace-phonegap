@@ -29,6 +29,7 @@ module.exports = function(grunt) {
             'js/templates.js',
             'js/index.js',
             'js/base.js',
+            'js/interface.js',
             'js/main.js'
           ]
         }

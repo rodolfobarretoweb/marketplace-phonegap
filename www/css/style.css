@@ -56,12 +56,12 @@ p {
 }
 
 .card-header, .card-content, .card-footer{
-  margin: 0px 15px 0px 15px;
+  margin: 0px 25px 0px 25px;
 }
 
 .card-header {
-  padding: 5px;
-  margin-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 20px;
 }
 
 .card-header > h1,h2,h3,h4,h5,h6 {
@@ -74,5 +74,24 @@ p {
 }
 
 .card-content, .card-footer{
-  padding:10px;
+  padding-bottom:10px;
+}
+
+/* Loading */
+.loading {
+  display: none;
+  z-index: 3000;
+  background: #000;
+  opacity: 0.5;
+  position: absolute;
+  top:0px;
+  left:0px;
+  right: 0px;
+  bottom:0px;
+}
+
+.loading img {
+  position: absolute;
+  top:50%;
+  left:50%;
 }
