@@ -1,6 +1,6 @@
 this["TPL"] = this["TPL"] || {};
 
-this["TPL"]["views/main.tpl"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["TPL"]["www/views/main.tpl"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var stack1, helper, options, functionType="function", escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
@@ -139,4 +139,13 @@ function program11(depth0,data) {
   stack1 = (helper = helpers.ifCond || (depth0 && depth0.ifCond),options={hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.response), "success", options) : helperMissing.call(depth0, "ifCond", (depth0 && depth0.response), "success", options));
   if(stack1 || stack1 === 0) { return stack1; }
   else { return ''; }
+  });
+
+this["TPL"]["www/views/no_connection.tpl"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<p class=\"text-center\">\n  Infelizmente você não está conectado a internet :(\n</p>";
   });

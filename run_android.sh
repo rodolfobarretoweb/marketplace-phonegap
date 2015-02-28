@@ -1,0 +1,2 @@
+grunt
+phonegap run android
