@@ -52,6 +52,16 @@ module.exports = function(grunt) {
           ]
         }
       }
+    },
+
+    jshint: {
+      all: [
+        'js/helpers.js',
+        'js/index.js',
+        'js/base.js',
+        'js/interface.js',
+        'js/main.js'
+      ]
     }
   };
 
@@ -60,8 +70,9 @@ module.exports = function(grunt) {
   // load plugins
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-handlebars')
+  grunt.loadNpmTasks('grunt-contrib-handlebars');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   // tasks
-  grunt.registerTask('default', ['handlebars', 'uglify','cssmin']);
+  grunt.registerTask('default', ['handlebars', 'uglify','cssmin', 'jshint']);
 };

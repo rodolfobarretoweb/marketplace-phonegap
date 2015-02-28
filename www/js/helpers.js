@@ -1,16 +1,14 @@
-Handlebars.registerHelper('empty', function(conditional, options) {
-  if(conditional == ' ') {
+Handlebars.registerHelper('ifCond', function(param1, param2, options) {
+  if(param1 == param2) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
 });
 
-Handlebars.registerHelper('ifCond', function(param1, param2, options) {
-  if(param1 == param2) {
+Handlebars.registerHelper('ifNot', function(param1, param2, options) {
+  if(param1 != param2) {
     return options.fn(this);
-  } else {
-    return options.inverse(this);
   }
 });
 
@@ -48,4 +46,21 @@ Handlebars.registerHelper('character_limit', function(str, limit) {
   }
 
   return str;
+});
+
+Handlebars.registerHelper('get_thumb', function(photo){
+  if(photo != null) {
+    var thumb = photo.split('.jpg');
+    thumb = thumb[0] + '_thumb.jpg';
+
+    return thumb;
+  }
+
+  return '';
+});
+
+Handlebars.registerHelper('nl2br', function(text) {
+    text = Handlebars.Utils.escapeExpression(text);
+    var nl2br = (text + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + '<br>' + '$2');
+    return new Handlebars.SafeString(nl2br);
 });
