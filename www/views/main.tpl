@@ -35,21 +35,23 @@
 
               <br><br>
 
-              <a href="http://maps.google.com/maps?q={{address_shopping}}, {{city_shopping}}, {{state_shopping}}" class="btn btn-info call-external-service">
-                <span class="glyphicon glyphicon-map-marker"></span>
-              </a>
-
-              {{#ifNot contact_number_shopping ''}}
-                <a href="tel:{{contact_number_shopping}}" class="btn btn-info call-external-service">
-                  <span class="glyphicon glyphicon-earphone"></span>
+              <div class="btn-group">
+                <a href="http://maps.google.com/maps?q={{address_shopping}}, {{city_shopping}}, {{state_shopping}}" class="btn btn-default call-external-service">
+                  <span class="glyphicon glyphicon-map-marker"></span> Mapa
                 </a>
-              {{/ifNot}}
 
-              {{#ifNot email_shopping ''}}
-                <a href="mailto:{{email_shopping}}" class="btn btn-info call-external-service">
-                  <span class="glyphicon glyphicon-envelope"></span>
-                </a>
-              {{/ifNot}}
+                {{#ifNot contact_number_shopping ''}}
+                  <a href="tel:{{contact_number_shopping}}" class="btn btn-default call-external-service">
+                    <span class="glyphicon glyphicon-earphone"></span> Ligar
+                  </a>
+                {{/ifNot}}
+
+                {{#ifNot email_shopping ''}}
+                  <a href="mailto:{{email_shopping}}" class="btn btn-default call-external-service">
+                    <span class="glyphicon glyphicon-envelope"></span> Enviar email
+                  </a>
+                {{/ifNot}}
+              </div>
             </div>
 
             <div role="tabpanel" class="tab-pane" id="parking-{{id_shopping}}">

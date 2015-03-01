@@ -63,7 +63,4 @@
     <access origin="*" />
     <access origin="tel:*" launch-external="yes" />
     <access origin="mailto:*" launch-external="yes" />
-
-    <!-- plugins -->
-    <gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
 </widget>

@@ -1,11 +1,13 @@
 Module('Main', function(Main){
-  var base      = new Base(),
-      interface = new Interface(),
+  var base        = new Base(),
+      interface   = new Interface(),
+      loaded_view = false,
       _this;
 
   Main.fn.initialize = function() { 
     this.callExternalServiceLoading();
 
+    // get reference of object
     _this = this;
 
     base.deviceReady(function(){
@@ -16,19 +18,16 @@ Module('Main', function(Main){
         
     base.onResume(function(){
       interface.destroyLoading();
-
-      base.hasConnection(function(){
-        _this.getShoppings();
-      });
     });
   };
 
   Main.fn.getShoppings = function() {
     $.ajax({
-      url      : base.setUrlAPI('shopping'),
-      type     : 'get',
-      dataType : 'json',
-      cache    : true,
+      url        : base.setUrlAPI('shopping'),
+      type       : 'get',
+      dataType   : 'json',
+      cache      : true,
+      ifModified : true,
 
       beforeSend : function() {
         interface.createLoading();
@@ -39,6 +38,7 @@ Module('Main', function(Main){
       },
 
       success  : function(json) {
+        loaded_view = true;
         base.template('main.tpl', json);
       } 
     });
