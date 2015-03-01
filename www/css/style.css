@@ -15,7 +15,7 @@ p {
 }
 
 /* Main header */
-.main-header {
+#main-header {
   background: #3F51B5;
   padding: 20px;
   position: fixed;
@@ -25,27 +25,68 @@ p {
   z-index: 2000;
 }
 
-.main-header h1 {
+#main-header h1 {
   font-size: 1.2em;
   color: #fff;
   margin: 0px;
+  margin-left: 25px;
 }
 
 /* Main search */
-.main-search {
+#main-search {
   position:fixed;
   top:55px;
   left: 0px;
   right: 0px;
   z-index: 2000;
   height: 44px;
-  box-shadow: 0px 0px 15px -2px #000;
+  box-shadow: 0 0px 16px -5px #000;
+  border-bottom: none;
 }
 
-.main-search .form-control {
+#main-search .form-control {
   border: none;
   border-bottom: 1px solid #dfdfdf;
   border-radius: 0px;
+}
+
+/* Main nav */
+#main-nav {
+  float: left;
+}
+
+#main-nav ul {
+  margin-left: -50px;
+}
+
+#main-nav li {
+  list-style: none;
+}
+
+#main-nav ul li a {
+  color: #fff;
+  padding:10px;
+}
+
+#main-sub-nav {
+  display: none;
+  position: fixed;
+  width: 90%;
+  top:101px;
+  left:-100%;
+  bottom:0px;
+  background: #fff;
+  box-shadow: 0px 0px 15px -4px #000;
+}
+
+#main-sub-nav li {
+  padding:15px;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+#main-nav ul li #main-sub-nav a {
+  color: #333;
+  font-size: 1.2em
 }
 
 /* centralizes columns */
@@ -85,7 +126,7 @@ p {
 }
 
 /* Loading */
-.loading {
+#loading {
   display: none;
   z-index: 3000;
   background: #000;
@@ -97,7 +138,7 @@ p {
   bottom:0px;
 }
 
-.loading img {
+#loading img {
   position: fixed;
   top:50%;
   left:45%;

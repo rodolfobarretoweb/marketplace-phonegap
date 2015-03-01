@@ -11,27 +11,34 @@
         <title>Marketplace Brasil</title>
     </head>
     
-    <body>
-        <div class="loading">
+    <body data-ythreshold="10">
+        <div id="loading">
             <img src="img/loader.gif">
-        </div>
+        </div> <!-- loading -->
 
-        <header class="main-header">
-            <div class="row">
-                <div class="col-xs-6 col-sm-6">
-                    <h1>Marketplace Brasil</h1>
-                </div>
-                
-                <div class="col-xs-6 col-sm-6"></div>
-            </div>
-        </header>
+        <header id="main-header">
+            <nav id="main-nav">
+                <ul>
+                    <li>
+                        <a href="#" id="trigger-main-sub-nav"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
 
-        <form method="post" action="#" class="main-search">
+                        <ul id="main-sub-nav">
+                            <li><a href="#">Definir minha localidade</a></li>
+                            <li><a href="#">Configurações</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <h1>Marketplace Brasil</h1>
+        </header> <!-- header -->
+
+        <form method="post" action="#" id="main-search">
             <div class="form-group">
                 <input type="search" placeholder="Pesquisar por shoppings ou cidades" class="form-control input-lg" required="yes" autofocus="yes">
             </div>
-        </form>
+        </form> <!-- search -->
 
-        <div class="container-fluid content"></div>
+        <div class="container-fluid" id="content"></div>
     </body>
 </html>

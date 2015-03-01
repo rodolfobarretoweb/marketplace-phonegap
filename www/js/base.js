@@ -7,7 +7,7 @@ Module('Base', function(Base){
     var template = TPL['www/views/' + file];
     $.extend(data, {base_url : BASE_URL});
 
-    $('.content').html(template(data));
+    $('#content').html(template(data));
   };
 
   Base.fn.setUrlAPI = function(target){
