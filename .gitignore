@@ -3,5 +3,5 @@ hooks
 platforms
 plugins
 
-www/node_modules
+node_modules
 www/dist
