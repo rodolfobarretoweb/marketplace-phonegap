@@ -1,0 +1,3 @@
+Module('Config', function(Config){
+
+});
