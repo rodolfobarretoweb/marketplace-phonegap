@@ -1,3 +1,0 @@
-Module('Config', function(Config){
-
-});
