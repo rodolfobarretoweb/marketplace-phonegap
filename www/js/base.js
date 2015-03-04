@@ -1,7 +1,7 @@
 Module('Base', function(Base){
   // CONSTANTS
   var BASE_URL     = 'http://secondjob.com.br/marketplace/',
-      BASE_URL_API = BASE_URL + 'api/';
+      BASE_URL_API = BASE_URL + 'api-v1/shopping/get/';
 
   Base.fn.template = function(file, data){
     var template = TPL['www/views/' + file];
