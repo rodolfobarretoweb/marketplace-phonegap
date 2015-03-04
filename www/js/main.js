@@ -13,6 +13,7 @@ Module('Main', function(Main){
     base.deviceReady(function(){
       base.hasConnection(function(){
         _this.getShoppings();
+        _this.seachShoppings();
       });
     });
         
@@ -21,9 +22,21 @@ Module('Main', function(Main){
     });
   };
 
-  Main.fn.getShoppings = function() {
+  Main.fn.seachShoppings = function() {
+    _this = this;
+
+    $('#main-search').submit(function(){
+      _this.getShoppings($("input[name='search']").val());
+
+      return false;
+    });
+  };
+
+  Main.fn.getShoppings = function(search) {
+    if(search === undefined) { search = '';}
+
     $.ajax({
-      url        : base.setUrlAPI('shopping'),
+      url        : base.setUrlAPI('shopping/get/' + search),
       type       : 'get',
       dataType   : 'json',
       cache      : true,
@@ -34,6 +47,10 @@ Module('Main', function(Main){
       },
 
       complete : function() {
+        interface.destroyLoading();
+      },
+
+      error: function() {
         interface.destroyLoading();
       },
 

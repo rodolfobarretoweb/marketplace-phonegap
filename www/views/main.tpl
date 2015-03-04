@@ -68,4 +68,7 @@
       </div> <!-- card-content -->
     </div> <!-- card -->
   {{/each}}
+
+{{else}}
+  <p>Infelizmente não conseguimos localizar nenhum registro. :(</p>
 {{/ifCond}}

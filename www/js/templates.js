@@ -11,7 +11,7 @@ function program1(depth0,data) {
   buffer += "\n  ";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.data), {hash:{},inverse:self.noop,fn:self.programWithDepth(2, program2, data, depth0),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n";
+  buffer += "\n\n";
   return buffer;
   }
 function program2(depth0,data,depth1) {
@@ -136,7 +136,13 @@ function program11(depth0,data) {
   return buffer;
   }
 
-  stack1 = (helper = helpers.ifCond || (depth0 && depth0.ifCond),options={hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.response), "success", options) : helperMissing.call(depth0, "ifCond", (depth0 && depth0.response), "success", options));
+function program13(depth0,data) {
+  
+  
+  return "\n  <p>Infelizmente não conseguimos localizar nenhum registro. :(</p>\n";
+  }
+
+  stack1 = (helper = helpers.ifCond || (depth0 && depth0.ifCond),options={hash:{},inverse:self.program(13, program13, data),fn:self.program(1, program1, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.response), "success", options) : helperMissing.call(depth0, "ifCond", (depth0 && depth0.response), "success", options));
   if(stack1 || stack1 === 0) { return stack1; }
   else { return ''; }
   });
