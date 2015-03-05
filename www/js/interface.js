@@ -1,6 +1,7 @@
 Module('Interface', function(Interface){
-  var loading = $('#loading'),
-      base    = new Base();
+  var loading  = $('#loading'),
+      nav_open = false,
+      base    =  new Base();
 
   Interface.fn.initialize = function() {
     this.actionsSubNav();
@@ -18,27 +19,27 @@ Module('Interface', function(Interface){
     var sub_nav = $('#main-sub-nav');
 
     function openSubNav() {
-      sub_nav.css('display','block').animate({left:'0%'}, 150);
+      sub_nav.removeClass('close_sub_nav_animation');
+      sub_nav.addClass('open_sub_nav_animation');
+
+      nav_open = true;
     }
 
     function closeSubNav() {
-      sub_nav.animate({left:'-100%'}, 150, function() {
-        sub_nav.css('display','none');
-      });
+      sub_nav.removeClass('open_sub_nav_animation');
+      sub_nav.addClass('close_sub_nav_animation');
+
+      nav_open = false;
     }
 
-    if(sub_nav.css('display') == 'none') {
-      base.backButton(function(){
+    $('body').swipeleft(function(){
+      if(nav_open === true){
         closeSubNav();
-      });
-
-      $('body').swipeleft(function(){
-        closeSubNav();
-      });
-    }
+      }
+    });
 
     $('#trigger-main-sub-nav').click(function(){
-      if(sub_nav.css('display') == 'none') {
+      if(nav_open === false) {
         openSubNav();
       } else {
         closeSubNav();
