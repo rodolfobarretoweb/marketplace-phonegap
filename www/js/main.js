@@ -12,7 +12,7 @@ Module('Main', function(Main){
 
     base.deviceReady(function(){
       base.hasConnection(function(){
-        _this.getShoppings();
+        _this.getShoppingsByPosition();
         _this.seachShoppings();
       });
     });
@@ -22,23 +22,28 @@ Module('Main', function(Main){
     });
   };
 
+  Main.fn.getShoppingsByPosition = function(){
+    base.getPosition(function(position, error){
+      _this.getShoppings({'lat' : position.coords.latitude, 'lng': position.coords.longitude});  
+    });
+  };
+
   Main.fn.seachShoppings = function() {
     _this = this;
 
     $('#main-search').submit(function(){
-      _this.getShoppings($("input[name='search']").val());
+      _this.getShoppings({'query' : $("input[name='search']").val()});
 
       return false;
     });
   };
 
-  Main.fn.getShoppings = function(search) {
-    if(search === undefined) { search = '';}
-
+  Main.fn.getShoppings = function(filters) {
     $.ajax({
-      url        : base.setUrlAPI('shopping/get/' + search),
+      url        : base.setUrlAPI('shopping/get/'),
       type       : 'get',
       dataType   : 'json',
+      data       : filters,
       cache      : true,
       ifModified : true,
 

@@ -1,7 +1,9 @@
 Module('Base', function(Base){
   // CONSTANTS
   var BASE_URL     = 'http://secondjob.com.br/marketplace/',
-      BASE_URL_API = BASE_URL + 'api-v1/';
+      BASE_URL_API = BASE_URL + 'api-v1/',
+      _navigator   = navigator,
+      _document    = document;
 
   Base.fn.template = function(file, data){
     var template = TPL['www/views/' + file];
@@ -16,19 +18,19 @@ Module('Base', function(Base){
 
   // events
   Base.fn.deviceReady = function(callback) {
-    document.addEventListener("deviceready", callback, false);
+    _document.addEventListener("deviceready", callback, false);
   };
 
   Base.fn.backButton = function(callback){
-    document.addEventListener("backbutton", callback, false);
+    _document.addEventListener("backbutton", callback, false);
   };
 
   Base.fn.onResume = function(callback){
-    document.addEventListener("resume", callback, false);
+    _document.addEventListener("resume", callback, false);
   };
 
   Base.fn.typeConnection = function() {
-    var network_status = navigator.connection.type,
+    var network_status = _navigator.connection.type,
         states = {};
 
     states[Connection.UNKNOWN]  = 'Unknown connection';
@@ -49,5 +51,17 @@ Module('Base', function(Base){
     } else {
       this.template('no_connection.tpl', '');
     }
+  };
+
+  Base.fn.getPosition = function(callback) {
+    _navigator.geolocation.getCurrentPosition(
+      function(position){
+        callback(position, null);
+      },
+
+      function(error) {
+        callback(null, error.message);
+      } 
+    );
   };
 });
