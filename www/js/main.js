@@ -1,7 +1,6 @@
 Module('Main', function(Main){
-  var base        = new Base(),
-      interface   = new Interface(),
-      loaded_view = false,
+  var base      = new Base(),
+      interface = new Interface(),
       _this;
 
   Main.fn.initialize = function() { 
@@ -60,7 +59,6 @@ Module('Main', function(Main){
       },
 
       success  : function(json) {
-        loaded_view = true;
         base.template('main.tpl', json);
       } 
     });
