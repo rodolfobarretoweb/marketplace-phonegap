@@ -49,8 +49,7 @@ module.exports = function(grunt) {
           [
             'www/css/libs/bootstrap.min.css',
             'www/css/libs/bootstrap-theme.min.css',
-            'www/css/style.css',
-            'www/css/animations.css'
+            'www/css/style.css'
           ]
         }
       }

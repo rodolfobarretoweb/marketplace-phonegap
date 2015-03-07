@@ -11,6 +11,8 @@ Module('Main', function(Main){
 
     base.deviceReady(function(){
       base.hasConnection(function(){
+
+        // call all methods when device is ready
         _this.getShoppingsByPosition();
         _this.seachShoppings();
       });
@@ -21,19 +23,22 @@ Module('Main', function(Main){
     });
   };
 
-  Main.fn.getShoppingsByPosition = function(){
-    base.getPosition(function(position, error){
-      _this.getShoppings({'lat' : position.coords.latitude, 'lng': position.coords.longitude});  
-    });
-  };
-
   Main.fn.seachShoppings = function() {
     _this = this;
 
-    $('#main-search').submit(function(){
-      _this.getShoppings({'query' : $("input[name='search']").val()});
+    $('#main-header-search').submit(function(){
+      _this.getShoppings({'query' : $("#main-header-search-field").val()});
 
       return false;
+    });
+  };
+
+  Main.fn.getShoppingsByPosition = function(){
+    base.getPosition(function(position, error){
+      _this.getShoppings({
+        'lat' : position.coords.latitude, 
+        'lng': position.coords.longitude
+      });  
     });
   };
 
@@ -46,7 +51,7 @@ Module('Main', function(Main){
       cache      : true,
       ifModified : true,
 
-      beforeSend : function() {
+      beforeSend : function(){
         interface.createLoading();
       },
 

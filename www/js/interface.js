@@ -1,10 +1,9 @@
 Module('Interface', function(Interface){
   var loading  = $('#loading'),
-      nav_open = false,
-      base    =  new Base();
+      _this;
 
   Interface.fn.initialize = function() {
-    this.actionsSubNav();
+    this.actionsTopBar();
   };
 
   Interface.fn.createLoading = function() {
@@ -15,37 +14,25 @@ Module('Interface', function(Interface){
     loading.fadeOut();
   };
 
-  Interface.fn.actionsSubNav = function() {
-    var sub_nav = $('#main-sub-nav');
+  // Actions of top bar
+  Interface.fn.actionsTopBar = function() {
+    var main_header_topbar = $('#main-header-topbar'),
+        main_header_search = $('#main-header-search'),
+        main = new Main();
 
-    function openSubNav() {
-      sub_nav.removeClass('close_sub_nav_animation');
-      sub_nav.addClass('open_sub_nav_animation');
+    _this = this;
 
-      nav_open = true;
-    }
-
-    function closeSubNav() {
-      sub_nav.removeClass('open_sub_nav_animation');
-      sub_nav.addClass('close_sub_nav_animation');
-
-      nav_open = false;
-    }
-
-    $('body').swipeleft(function(){
-      if(nav_open === true){
-        closeSubNav();
-      }
+    $('#trigger-main-search').tap(function(){
+      main_header_topbar.addClass('hidden');
+      main_header_search.removeClass('hidden');
     });
 
-    $('#trigger-main-sub-nav').click(function(){
-      if(nav_open === false) {
-        openSubNav();
-      } else {
-        closeSubNav();
-      }
+    $('#main-header-search-back-button').tap(function(){
+      main_header_topbar.removeClass('hidden');
+      main_header_search.addClass('hidden');
 
-      return false;
+      _this.createLoading();
+      main.getShoppingsByPosition();
     });
   };
 });

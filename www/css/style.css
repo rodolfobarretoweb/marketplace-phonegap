@@ -1,12 +1,20 @@
 /* Global */
 body {
   background: #f1f1f1;
-  padding-top: 120px;
+  padding-top: 80px;
 }
 
 p {
   font-size: 1.0em;
   letter-spacing: 1px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin:0px;
+}
+
+input:focus, button:focus {
+  outline: none;
 }
 
 /* Rewriting bootstrap */
@@ -17,7 +25,7 @@ p {
 /* Main header */
 #main-header {
   background: #3F51B5;
-  padding: 20px;
+  padding: 10px;
   position: fixed;
   left: 0px;
   right: 0px;
@@ -25,67 +33,52 @@ p {
   z-index: 2000;
 }
 
+#main-header-topbar {
+  padding-top:10px;
+}
+
 #main-header h1 {
   font-size: 1.2em;
   color: #fff;
-  margin: 0px;
-  margin-left: 25px;
+  padding-top:3px;
+}
+
+#trigger-main-search{
+  background: none;
+  border: none;
+  color:#fff;
+  padding:0px 10px 10px 0px;
+}
+
+#trigger-config {
+  background: none;
+  border: none;
+  color: #fff;
+  padding:0px 0px 10px 10px;
 }
 
 /* Main search */
-#main-search {
-  position:fixed;
-  top:55px;
-  left: 0px;
-  right: 0px;
-  z-index: 2000;
-  height: 44px;
-  box-shadow: 0 0px 16px -5px #000;
-  border-bottom: none;
-}
-
-#main-search .form-control {
+#main-header-search-field {
+  background: none;
   border: none;
-  border-bottom: 1px solid #dfdfdf;
-  border-radius: 0px;
-}
-
-/* Main nav */
-#main-nav {
-  float: left;
-}
-
-#main-nav ul {
-  margin-left: -50px;
-}
-
-#main-nav li {
-  list-style: none;
-}
-
-#main-nav ul li a {
+  width: 100%;
+  padding:10px 0px 10px 0px;
   color: #fff;
-  padding:10px;
 }
 
-#main-sub-nav {
-  position: fixed;
-  width: 90%;
-  top:101px;
-  left:-100%;
-  bottom:0px;
-  background: #fff;
-  box-shadow: 0px 0px 15px -4px #000;
+#main-header-search ::-webkit-input-placeholder{
+  color: #fff;
 }
 
-#main-sub-nav li {
-  padding:15px;
-  border-bottom: 1px solid #dfdfdf;
+#main-header-search :-ms-input-placeholder {
+  color: #fff;
 }
 
-#main-nav ul li #main-sub-nav a {
-  color: #333;
-  font-size: 1.2em
+#main-header-search-back-button{
+  border: none;
+  background: none;
+  color: #fff;
+  padding:10px 3px 10px 15px;
 }
 
 /* centralizes columns */
