@@ -15,6 +15,7 @@ Module('Main', function(Main){
         // call all methods when device is ready
         _this.getShoppingsByPosition();
         _this.seachShoppings();
+        _this.callPage();
       });
     });
         
@@ -37,7 +38,7 @@ Module('Main', function(Main){
     base.getPosition(function(position, error){
       _this.getShoppings({
         'lat' : position.coords.latitude, 
-        'lng': position.coords.longitude
+        'lng' : position.coords.longitude
       });  
     });
   };

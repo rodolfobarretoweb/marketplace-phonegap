@@ -22,12 +22,14 @@ Module('Interface', function(Interface){
 
     _this = this;
 
-    $('#trigger-main-search').tap(function(){
+    $('#trigger-main-search').click(function(){
       main_header_topbar.addClass('hidden');
       main_header_search.removeClass('hidden');
+
+      $('#main-header-search-field').focus();
     });
 
-    $('#main-header-search-back-button').tap(function(){
+    $('#main-header-search-back-button').click(function(){
       main_header_topbar.removeClass('hidden');
       main_header_search.addClass('hidden');
 
