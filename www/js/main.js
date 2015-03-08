@@ -23,8 +23,14 @@ Module('Main', function(Main){
   Main.fn.seachShoppings = function() {
     _this = this;
 
+    var main_header_search_field = $("#main-header-search-field");
+
     $('#main-header-search').submit(function(){
-      _this.getShoppings({'query' : $("#main-header-search-field").val()});
+      _this.getShoppings({
+        'query' : main_header_search_field.val()
+      });
+      
+      main_header_search_field.blur();
 
       return false;
     });
