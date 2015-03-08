@@ -10,13 +10,9 @@ Module('Main', function(Main){
     _this = this;
 
     base.deviceReady(function(){
-      base.hasConnection(function(){
-
-        // call all methods when device is ready
-        _this.getShoppingsByPosition();
-        _this.seachShoppings();
-        _this.callPage();
-      });
+      // call all methods when device is ready
+      _this.getShoppingsByPosition();
+      _this.seachShoppings();
     });
         
     base.onResume(function(){
@@ -36,37 +32,46 @@ Module('Main', function(Main){
 
   Main.fn.getShoppingsByPosition = function(){
     base.getPosition(function(position, error){
-      _this.getShoppings({
-        'lat' : position.coords.latitude, 
-        'lng' : position.coords.longitude
-      });  
+
+      if(error == null) {
+        _this.getShoppings({
+          'lat' : position.coords.latitude, 
+          'lng' : position.coords.longitude
+        });
+      } else {
+        _this.getShoppings({
+          'limit' : 20
+        })
+      }  
     });
   };
 
   Main.fn.getShoppings = function(filters) {
-    $.ajax({
-      url        : base.setUrlAPI('shopping/get/'),
-      type       : 'get',
-      dataType   : 'json',
-      data       : filters,
-      cache      : true,
-      ifModified : true,
+    base.hasConnection(function(){
+      $.ajax({
+        url        : base.setUrlAPI('shopping/get/'),
+        type       : 'get',
+        dataType   : 'json',
+        data       : filters,
+        cache      : true,
+        ifModified : true,
 
-      beforeSend : function(){
-        interface.createLoading();
-      },
+        beforeSend : function(){
+          interface.createLoading();
+        },
 
-      complete : function() {
-        interface.destroyLoading();
-      },
+        complete : function() {
+          interface.destroyLoading();
+        },
 
-      error: function() {
-        interface.destroyLoading();
-      },
+        error: function() {
+          interface.destroyLoading();
+        },
 
-      success  : function(json) {
-        base.template('main.tpl', json);
-      } 
+        success  : function(json) {
+          base.template('main.tpl', json);
+        } 
+      });
     });
   };
 

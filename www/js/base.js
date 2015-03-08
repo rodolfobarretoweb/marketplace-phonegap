@@ -61,7 +61,9 @@ Module('Base', function(Base){
 
       function(error) {
         callback(null, error.message);
-      } 
+      },
+
+      { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true } 
     );
   };
 });
