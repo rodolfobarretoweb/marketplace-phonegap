@@ -13,26 +13,44 @@
         </div>
    
         <div class="card-content">
-          <p>{{character_limit description_shopping 200}}</p>
-
           <div role="tabpanel">
             <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="active">
-                <a href="#location-{{id_shopping}}" aria-controls="location" role="tab" data-toggle="tab">Localização</a>
+                <a href="#location-{{id_shopping}}" aria-controls="location" role="tab" data-toggle="tab">Local</a>
               </li>
               
               <li role="presentation">
-                <a href="#parking-{{id_shopping}}" aria-controls="parking-{{id_shopping}}" role="tab" data-toggle="tab">Estacionamento</a>
+                <a href="#parking-{{id_shopping}}" aria-controls="parking-{{id_shopping}}" role="tab" data-toggle="tab">Estacio..</span>
+                </a>
+              </li>
+
+              <li role="presentation">
+                <a href="#description-{{id_shopping}}" aria-controls="description-{{id_shopping}}" role="tab" data-toggle="tab">Desc..</span>
+                </a>
               </li>
             </ul>
 
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane active" id="location-{{id_shopping}}">
-                <span><b>Email: </b>{{email_shopping}}</span><br>
-                <span><b>Telefone: </b>{{contact_number_shopping}}</span><br>
-                <span><b>Endereço: </b>{{address_shopping}}</span><br>
-                <span><b>Cidade: </b>{{city_shopping}}</span><br>
-                <span><b>Estado: </b>{{state_shopping}}</span>
+                {{# ifNot email_shopping ''}}
+                  <div><b>Email: </b>{{email_shopping}}</div>
+                {{/ifNot}}
+
+                {{# ifNot contact_number_shopping ''}}
+                  <div><b>Telefone: </b>{{contact_number_shopping}}</div>
+                {{/ifNot}}
+
+                {{# ifNot address_shopping ''}}
+                  <div><b>Localidade: </b>{{address_shopping}}</div>
+                {{/ifNot}}
+
+                {{# ifNot city_shopping ''}}
+                  <div><b>Cidade: </b>{{city_shopping}}</div>
+                {{/ifNot}}
+
+                {{# ifNot state_shopping ''}}
+                  <div><b>Estado: </b>{{state_shopping}}</div>
+                {{/ifNot}}
 
                 <br><br>
 
@@ -61,6 +79,16 @@
                     Sem informações
                   {{else}}
                     {{nl2br observation_parking_shopping}}
+                  {{/ifCond}}
+                </p>
+              </div>
+
+              <div role="tabpanel" class="tab-pane" id="description-{{id_shopping}}">
+                <p>
+                  {{#ifCond description_shopping ''}}
+                    Sem descrição
+                  {{else}}
+                    {{nl2br description_shopping}}
                   {{/ifCond}}
                 </p>
               </div>

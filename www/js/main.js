@@ -81,6 +81,7 @@ Module('Main', function(Main){
     });
   };
 
+  // Show loading interface when external service is called
   Main.fn.callExternalServiceLoading = function() {
     $(document).on('click', '.call-external-service', function(){
       interface.createLoading();
