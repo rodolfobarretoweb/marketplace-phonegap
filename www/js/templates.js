@@ -26,7 +26,7 @@ function program2(depth0,data,depth1) {
   if (helper = helpers.id_shopping) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.id_shopping); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\" aria-controls=\"location\" role=\"tab\" data-toggle=\"tab\">Local</a>\n              </li>\n              \n              <li role=\"presentation\">\n                <a href=\"#parking-";
+    + "\" aria-controls=\"location\" role=\"tab\" data-toggle=\"tab\">\n                  <span class=\"glyphicon glyphicon-map-marker\"></span>\n                </a>\n              </li>\n              \n              <li role=\"presentation\">\n                <a href=\"#parking-";
   if (helper = helpers.id_shopping) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.id_shopping); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -34,7 +34,7 @@ function program2(depth0,data,depth1) {
   if (helper = helpers.id_shopping) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.id_shopping); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\" role=\"tab\" data-toggle=\"tab\">Estacio..</span>\n                </a>\n              </li>\n\n              <li role=\"presentation\">\n                <a href=\"#description-";
+    + "\" role=\"tab\" data-toggle=\"tab\"><span class=\"glyphicon glyphicon-road\"></span></span>\n                </a>\n              </li>\n\n              <li role=\"presentation\">\n                <a href=\"#description-";
   if (helper = helpers.id_shopping) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.id_shopping); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -42,7 +42,7 @@ function program2(depth0,data,depth1) {
   if (helper = helpers.id_shopping) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.id_shopping); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\" role=\"tab\" data-toggle=\"tab\">Desc..</span>\n                </a>\n              </li>\n            </ul>\n\n            <div class=\"tab-content\">\n              <div role=\"tabpanel\" class=\"tab-pane active\" id=\"location-";
+    + "\" role=\"tab\" data-toggle=\"tab\">\n                  <span class=\"glyphicon glyphicon-list-alt\"></span>\n                </a>\n              </li>\n            </ul>\n\n            <div class=\"tab-content\">\n              <div role=\"tabpanel\" class=\"tab-pane active\" id=\"location-";
   if (helper = helpers.id_shopping) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.id_shopping); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)

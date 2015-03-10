@@ -16,16 +16,19 @@
           <div role="tabpanel">
             <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="active">
-                <a href="#location-{{id_shopping}}" aria-controls="location" role="tab" data-toggle="tab">Local</a>
+                <a href="#location-{{id_shopping}}" aria-controls="location" role="tab" data-toggle="tab">
+                  <span class="glyphicon glyphicon-map-marker"></span>
+                </a>
               </li>
               
               <li role="presentation">
-                <a href="#parking-{{id_shopping}}" aria-controls="parking-{{id_shopping}}" role="tab" data-toggle="tab">Estacio..</span>
+                <a href="#parking-{{id_shopping}}" aria-controls="parking-{{id_shopping}}" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-road"></span></span>
                 </a>
               </li>
 
               <li role="presentation">
-                <a href="#description-{{id_shopping}}" aria-controls="description-{{id_shopping}}" role="tab" data-toggle="tab">Desc..</span>
+                <a href="#description-{{id_shopping}}" aria-controls="description-{{id_shopping}}" role="tab" data-toggle="tab">
+                  <span class="glyphicon glyphicon-list-alt"></span>
                 </a>
               </li>
             </ul>
