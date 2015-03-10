@@ -4,4 +4,4 @@
 
 <br>
 
-<button class="btn btn-primary btn-lg btn-block" id="refresh-shopping">Atualizar</button>
+<button class="btn btn-default btn-lg btn-block" id="refresh-offline">Atualizar</button>

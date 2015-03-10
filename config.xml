@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.secondjob.marketplacebrasil" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
 
     <!-- meta data -->
-    <name>Marketplace Brasil</name>
+    <name>Shoppings Brasil</name>
     <description>
-        Todos os shoppings do Brasil em um só lugar
+        Encontre o mais próximo
     </description>
     <author email="rodolfobarretoweb@gmail.com" href="http://secondjob.com.br">
         Secondjob
@@ -44,20 +44,25 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
-    <icon src="icon.png" />
-
-    <!-- icons -->
-    <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
-    <icon gap:platform="android" gap:qualifier="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />
-    <icon gap:platform="android" gap:qualifier="hdpi" src="www/res/icon/android/icon-72-hdpi.png" />
-    <icon gap:platform="android" gap:qualifier="xhdpi" src="www/res/icon/android/icon-96-xhdpi.png" />
+    
+    <!-- icon -->
+    <icon src="www/res/icon/icon.png" />
 
     <!-- splash -->
-    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/res/screen/android/screen-ldpi-portrait.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/res/screen/android/screen-mdpi-portrait.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="www/res/screen/android/screen-hdpi-portrait.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="www/res/screen/android/screen-xhdpi-portrait.png" />
+    <platform name="android">
+        <splash src="www/res/screen/android/splash-land-hdpi.png" density="land-hdpi"/>
+        <splash src="www/res/screen/android/splash-land-ldpi.png" density="land-ldpi"/>
+        <splash src="www/res/screen/android/splash-land-mdpi.png" density="land-mdpi"/>
+        <splash src="www/res/screen/android/splash-land-xhdpi.png" density="land-xhdpi"/>
+
+        <splash src="www/res/screen/android/splash-port-hdpi.png" density="port-hdpi"/>
+        <splash src="www/res/screen/android/splash-port-ldpi.png" density="port-ldpi"/>
+        <splash src="www/res/screen/android/splash-port-mdpi.png" density="port-mdpi"/>
+        <splash src="www/res/screen/android/splash-port-xhdpi.png" density="port-xhdpi"/>
+    </platform>
+
     <preference name="Splashscreen" value="screen"/>
+    <preference name="SplashScreenDelay" value="3000" />
 
     <!-- access -->
     <access origin="*" />

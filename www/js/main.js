@@ -11,6 +11,7 @@ Module('Main', function(Main){
 
     base.deviceReady(function(){
       // call all methods when device is ready
+      interface.createLoading();
       _this.getShoppingsByPosition();
       _this.seachShoppings();
     });

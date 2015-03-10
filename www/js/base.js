@@ -45,11 +45,15 @@ Module('Base', function(Base){
     return states[network_status];
   };
 
-  Base.fn.hasConnection = function(calback) {
+  Base.fn.hasConnection = function(calbackSuccess, callbackError) {
     if(this.typeConnection() != 'No network connection') {
-      calback();
+      calbackSuccess();
     } else {
-      this.template('no_connection.tpl', '');
+      if(callbackError == undefined) {
+        this.template('no_connection.tpl', '');  
+      } else {
+        callbackError();
+      }
     }
   };
 

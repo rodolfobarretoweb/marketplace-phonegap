@@ -1,14 +1,5 @@
 this["TPL"] = this["TPL"] || {};
 
-this["TPL"]["www/views/config.tpl"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  
-
-
-  return "<section>\n  <table class=\"table\">\n    <tbody>\n      <tr>\n        <td><b>Desenvolvido por</b></td>\n        <td><a href=\"http://secondjob.com.br\" target=\"_blank\">Seconjob</a></td>\n      </tr>\n\n      <tr>\n        <td><b>Versão</b></td>\n        <td>1.0.0</td>\n      </tr>\n    </tbody>\n  </table>\n</section>";
-  });
-
 this["TPL"]["www/views/main.tpl"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
@@ -242,5 +233,5 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<p class=\"text-center\">\n  Infelizmente você não está conectado a internet :(\n</p>";
+  return "<p class=\"text-center\">\n  Infelizmente você não está conectado a internet :(\n</p>\n\n<br>\n\n<button class=\"btn btn-default btn-lg btn-block\" id=\"refresh-offline\">Atualizar</button>\n";
   });
