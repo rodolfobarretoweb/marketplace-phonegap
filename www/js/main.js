@@ -30,7 +30,7 @@ Module('Main', function(Main){
 
     $('#main-header-search').submit(function(){
       _this.getShoppings({
-        'query' : main_header_search_field.val()
+        'query' : $.trim(main_header_search_field.val())
       });
       
       main_header_search_field.blur();
