@@ -10,10 +10,12 @@ Module('Main', function(Main){
     _this = this;
 
     base.deviceReady(function(){
-      // call all methods when device is ready
-      interface.createLoading();
-      _this.getShoppingsByPosition();
-      _this.seachShoppings();
+      base.hasConnection(function(){
+        // call all methods when device is ready
+        interface.createLoading();
+        _this.getShoppingsByPosition();
+        _this.seachShoppings();
+      });
     });
         
     base.onResume(function(){
@@ -54,31 +56,29 @@ Module('Main', function(Main){
   };
 
   Main.fn.getShoppings = function(filters) {
-    base.hasConnection(function(){
-      $.ajax({
-        url        : base.setUrlAPI('shopping/get/'),
-        type       : 'get',
-        dataType   : 'json',
-        data       : filters,
-        cache      : true,
-        ifModified : true,
+    $.ajax({
+      url        : base.setUrlAPI('shopping/get/'),
+      type       : 'get',
+      dataType   : 'json',
+      data       : filters,
+      cache      : true,
+      ifModified : true,
 
-        beforeSend : function(){
-          interface.createLoading();
-        },
+      beforeSend : function(){
+        interface.createLoading();
+      },
 
-        complete : function() {
-          interface.destroyLoading();
-        },
+      complete : function() {
+        interface.destroyLoading();
+      },
 
-        error: function() {
-          interface.destroyLoading();
-        },
+      error: function() {
+        interface.destroyLoading();
+      },
 
-        success  : function(json) {
-          base.template('main.tpl', json);
-        } 
-      });
+      success  : function(json) {
+        base.template('main.tpl', json);
+      } 
     });
   };
 
