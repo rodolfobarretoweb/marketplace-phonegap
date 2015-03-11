@@ -61,7 +61,7 @@ function program2(depth0,data,depth1) {
   buffer += "\n\n                ";
   stack1 = (helper = helpers.ifNot || (depth0 && depth0.ifNot),options={hash:{},inverse:self.noop,fn:self.program(13, program13, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.state_shopping), "", options) : helperMissing.call(depth0, "ifNot", (depth0 && depth0.state_shopping), "", options));
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n\n                <br><br>\n\n                <div class=\"btn-group\">\n                  <a href=\"http://maps.google.com/maps?q=";
+  buffer += "\n\n                <br><br>\n\n                <div class=\"btn-group\">\n                  <button class=\"btn btn-default call-external-service\" data-service=\"map\" data-param=\"";
   if (helper = helpers.address_shopping) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.address_shopping); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -73,7 +73,7 @@ function program2(depth0,data,depth1) {
   if (helper = helpers.state_shopping) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.state_shopping); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\" class=\"btn btn-default call-external-service\">\n                    <span class=\"glyphicon glyphicon-map-marker\"></span> Mapa\n                  </a>\n\n                  ";
+    + "\">\n                    <span class=\"glyphicon glyphicon-map-marker\"></span> Mapa\n                  </button>\n\n                  ";
   stack1 = (helper = helpers.ifNot || (depth0 && depth0.ifNot),options={hash:{},inverse:self.noop,fn:self.program(15, program15, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.contact_number_shopping), "", options) : helperMissing.call(depth0, "ifNot", (depth0 && depth0.contact_number_shopping), "", options));
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n\n                  ";
@@ -165,22 +165,22 @@ function program13(depth0,data) {
 function program15(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\n                    <a href=\"tel:";
+  buffer += "\n                    <button class=\"btn btn-default call-external-service\" data-service=\"phone\" data-param=\"";
   if (helper = helpers.contact_number_shopping) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.contact_number_shopping); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\" class=\"btn btn-default call-external-service\">\n                      <span class=\"glyphicon glyphicon-earphone\"></span> Ligar\n                    </a>\n                  ";
+    + "\">\n                      <span class=\"glyphicon glyphicon-earphone\"></span> Ligar\n                    </button>\n                  ";
   return buffer;
   }
 
 function program17(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\n                    <a href=\"mailto:";
+  buffer += "\n                    <button class=\"btn btn-default call-external-service\" data-service=\"email\" data-param=\"";
   if (helper = helpers.email_shopping) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.email_shopping); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\" class=\"btn btn-default call-external-service\">\n                      <span class=\"glyphicon glyphicon-envelope\"></span> Enviar email\n                    </a>\n                  ";
+    + "\">\n                      <span class=\"glyphicon glyphicon-envelope\"></span> Enviar email\n                    </a>\n                  ";
   return buffer;
   }
 

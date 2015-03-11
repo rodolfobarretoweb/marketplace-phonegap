@@ -42,9 +42,7 @@ Module('Main', function(Main){
   Main.fn.getShoppingsByPosition = function(){
     // Try get shoppings by position of gps
     base.getPosition(function(position, error){
-
       if(error == null) {
-
         // get shopping by gps postion
         _this.getShoppings({
           'lat' : position.coords.latitude, 
@@ -117,6 +115,34 @@ Module('Main', function(Main){
   Main.fn.callExternalServiceLoading = function() {
     $(document).on('click', '.call-external-service', function(){
       interface.createLoading();
+
+      var service = $(this).data('service'),
+          param   = $(this).data('param'),
+          application_package_name = [];
+
+      switch(service) {
+        case 'map':
+          action = ["action", "VIEW"];
+          param  = "http://maps.google.com/maps?q=" + param;
+        break;
+
+        case 'phone':
+          action = ["action", "DIAL"];
+          param  = "tel:" + param;
+        break;
+
+        case 'email':
+          action = ["action", "VIEW"];
+          param  = "mailto:" + param;
+        break;        
+      }
+
+      navigator.startApp.start([action, [param]], function(message) {}, 
+
+      function(error) {
+        interface.destroyLoading();
+        interface.toast("Não foi possível executar essa aplicação");
+      });
     });
   };
 });

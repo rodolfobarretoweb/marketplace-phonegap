@@ -58,18 +58,18 @@
                 <br><br>
 
                 <div class="btn-group">
-                  <a href="http://maps.google.com/maps?q={{address_shopping}}, {{city_shopping}}, {{state_shopping}}" class="btn btn-default call-external-service">
+                  <button class="btn btn-default call-external-service" data-service="map" data-param="{{address_shopping}}, {{city_shopping}}, {{state_shopping}}">
                     <span class="glyphicon glyphicon-map-marker"></span> Mapa
-                  </a>
+                  </button>
 
                   {{#ifNot contact_number_shopping ''}}
-                    <a href="tel:{{contact_number_shopping}}" class="btn btn-default call-external-service">
+                    <button class="btn btn-default call-external-service" data-service="phone" data-param="{{contact_number_shopping}}">
                       <span class="glyphicon glyphicon-earphone"></span> Ligar
-                    </a>
+                    </button>
                   {{/ifNot}}
 
                   {{#ifNot email_shopping ''}}
-                    <a href="mailto:{{email_shopping}}" class="btn btn-default call-external-service">
+                    <button class="btn btn-default call-external-service" data-service="email" data-param="{{email_shopping}}">
                       <span class="glyphicon glyphicon-envelope"></span> Enviar email
                     </a>
                   {{/ifNot}}
