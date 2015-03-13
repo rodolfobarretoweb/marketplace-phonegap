@@ -40,46 +40,18 @@ Module('Main', function(Main){
   };
 
   Main.fn.getShoppingsByPosition = function(){
-    // Try get shoppings by position of gps
     base.getPosition(function(position, error){
       if(error == null) {
+
         // get shopping by gps postion
         _this.getShoppings({
           'lat' : position.coords.latitude, 
           'lng' : position.coords.longitude
         });
       } else {
-       // if gps of, try get position by ip
-       $.ajax({
-        url        : 'http://www.geoplugin.net/json.gp',
-        type       : 'get',
-        dataType   : 'json',
-        cache      : true,
-        ifModified : true,
+        interface.toast("GPS desativado, buscando shoppings aleatórios");
 
-        beforeSend : function(){
-          interface.createLoading();
-        },
-
-        complete : function() {
-          interface.destroyLoading();
-        },
-
-        error: function() {
-          // fallback in error case
-          _this.getShoppings({
-            'limit' : 20
-          })
-        },
-
-        success  : function(json) {
-          // get lat and lng 
-          _this.getShoppings({
-            'lat' : json.geoplugin_latitude,
-            'lng' : json.geoplugin_longitude
-          })
-        } 
-       });
+        _this.getShoppings();
       }  
     });
   };
