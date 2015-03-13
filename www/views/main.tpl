@@ -17,18 +17,19 @@
             <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="active">
                 <a href="#location-{{id_shopping}}" aria-controls="location" role="tab" data-toggle="tab">
-                  <span class="glyphicon glyphicon-map-marker"></span>
+                  <img src="img/icon-gps.png" alt="Local">
                 </a>
               </li>
               
               <li role="presentation">
-                <a href="#parking-{{id_shopping}}" aria-controls="parking-{{id_shopping}}" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-road"></span></span>
+                <a href="#parking-{{id_shopping}}" aria-controls="parking-{{id_shopping}}" role="tab" data-toggle="tab">
+                  <img src="img/icon-car.png" alt="Estacionamento">
                 </a>
               </li>
 
               <li role="presentation">
                 <a href="#description-{{id_shopping}}" aria-controls="description-{{id_shopping}}" role="tab" data-toggle="tab">
-                  <span class="glyphicon glyphicon-list-alt"></span>
+                  <img src="img/icon-text.png" alt="Descrição">
                 </a>
               </li>
             </ul>
