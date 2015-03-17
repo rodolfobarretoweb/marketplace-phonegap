@@ -61,8 +61,12 @@
         <splash src="www/res/screen/android/splash-port-xhdpi.png" density="port-xhdpi"/>
     </platform>
 
+    <!-- preferences -->
     <preference name="Splashscreen" value="screen"/>
-    <preference name="SplashScreenDelay" value="3000" />
+
+    <!-- preferences of android -->
+    <preference name="android-minSdkVersion" value="16" />
+    <preference name="android-targetSdkVersion" value="21" />
 
     <!-- access -->
     <access origin="*" />
