@@ -85,7 +85,7 @@ Module('Main', function(Main){
 
   // Show loading interface when external service is called
   Main.fn.callExternalServiceLoading = function() {
-    $(document).on('click', '.call-external-service', function(){
+    $(document).on('click', '#call-external-service button', function(){
       interface.createLoading();
 
       var service = $(this).data('service'),
@@ -106,6 +106,11 @@ Module('Main', function(Main){
         case 'email':
           action = ["action", "VIEW"];
           param  = "mailto:" + param;
+        break;  
+
+        case 'website':
+          action = ["action", "VIEW"];
+          param  = param;
         break;        
       }
 

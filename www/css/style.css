@@ -26,6 +26,11 @@ input:focus, button:focus {
   padding: 15px;
 }
 
+.btn-default {
+  background: #f5f5f5 !important;
+  box-shadow: none !important;
+}
+
 /* Main header */
 #main-header {
   background: #3F51B5;
@@ -39,14 +44,14 @@ input:focus, button:focus {
 #main-header h1 {
   font-size: 1.2em;
   color: #fff;
-  padding:23px 20px 20px 20px;
+  padding:23px 0px 20px 0px;
 }
 
 #trigger-main-search{
   background: none;
   border: none;
   color:#fff;
-  padding:20px;
+  padding:20px 0px 20px 0px;
 }
 
 /* Main search */
@@ -54,7 +59,7 @@ input:focus, button:focus {
   background: none;
   border: none;
   width: 100%;
-  padding:20px;
+  padding:20px 0px 20px 0px;
   margin-left: -20px;
   color: #fff;
 }
@@ -71,7 +76,7 @@ input:focus, button:focus {
   border: none;
   background: none;
   color: #fff;
-  padding:20px;
+  padding:20px 0px 20px 0px;
 }
 
 /* centralizes columns */
@@ -82,32 +87,31 @@ input:focus, button:focus {
 
 /* Card */
 .card{
+  margin-bottom: 20px;
   background: #fff;
-  box-shadow:0px 9px 12px -14px #000;
   border:1px solid #dfdfdf;
-  margin-bottom: 30px;
-}
-
-.card-header, .card-content, .card-footer{
-  margin: 0px 25px 0px 25px;
+  padding:20px;
 }
 
 .card-header {
-  padding-bottom: 10px;
-  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
-.card-header > h1,h2,h3,h4,h5,h6 {
+.card-header hgroup {
   margin:0px;
-  font-size:1.4em;
 }
 
-.card-header a{
-  color:#333;
+.card-header h3 {
+  font-size:1.2em;
+  font-weight: bold;
 }
 
-.card-content, .card-footer{
-  padding-bottom:20px;
+.card-header h4 {
+  font-size: 0.8em;
+}
+
+.card-img {
+  margin: 0px -20px 0px -20px;
 }
 
 /* Loading */
@@ -127,4 +131,21 @@ input:focus, button:focus {
   position: fixed;
   top:50%;
   left:45%;
+}
+
+
+/* Icons of content (call external services) */
+#call-external-service {
+  padding: 10px; 
+}
+
+#call-external-service button{
+  background: none;
+  border: none;
+  font-size:2.0em;
+  color:#666;
+}
+
+#call-external-service .service-disabled {
+  color:#dfdfdf;
 }

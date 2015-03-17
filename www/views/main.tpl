@@ -2,79 +2,66 @@
   {{#ifCond response 'success'}}
     {{#each data}}
       <div class="card">
-        {{#ifNot photo_name_shopping null}}
-          <div class="card-img">
-            <img src="{{../../base_url}}assets/img/uploads/{{get_thumb photo_name_shopping}}" class="img-responsive">
-          </div>
-        {{/ifNot}}
-        
         <div class="card-header">
-          <h3>{{character_limit name_shopping 50}}</h3>
+          <hgroup>
+            <h3>{{character_limit name_shopping 50}}</h3>
+            <h4>{{city_shopping}}</h4>
+          </hgroup>
         </div>
    
         <div class="card-content">
+          {{#ifNot photo_name_shopping null}}
+            <div class="card-img">
+              <img src="{{../../base_url}}assets/img/uploads/{{get_thumb photo_name_shopping}}" class="img-responsive">
+            </div>
+          {{/ifNot}}
+
+          <div id="call-external-service" class="row">
+            <div class="col-xs-3 col-sm-3">
+              <button data-service="map" data-param="{{address_shopping}}, {{city_shopping}}, {{state_shopping}}" {{#ifCond address_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
+                <span class="glyphicon glyphicon-map-marker"></span> 
+              </button>
+            </div>
+
+            <div class="col-xs-3 col-sm-3">
+              <button data-service="phone" data-param="{{contact_number_shopping}}" {{#ifCond contact_number_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
+                <span class="glyphicon glyphicon-earphone"></span> 
+              </button>
+            </div>
+          
+            <div class="col-xs-3 col-sm-3">
+              <button data-service="email" data-param="{{email_shopping}}" {{#ifCond email_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
+                <span class="glyphicon glyphicon-envelope"></span> 
+              </button>
+            </div>
+
+            <div class="col-xs-3 col-sm-3">
+              <button data-service="website" data-param="{{website_shopping}}" {{#ifCond website_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
+                <span class="glyphicon glyphicon-link"></span> 
+              </button>
+            </div>
+        </div> <!-- call external service -->
+
           <div role="tabpanel">
             <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="active">
-                <a href="#location-{{id_shopping}}" aria-controls="location" role="tab" data-toggle="tab">
-                  <img src="img/icon-gps.png" alt="Local">
-                </a>
-              </li>
-              
-              <li role="presentation">
-                <a href="#parking-{{id_shopping}}" aria-controls="parking-{{id_shopping}}" role="tab" data-toggle="tab">
-                  <img src="img/icon-car.png" alt="Estacionamento">
-                </a>
+                <a href="#description-{{id_shopping}}" aria-controls="description-{{id_shopping}}" role="tab" data-toggle="tab">Descrição</a>
               </li>
 
               <li role="presentation">
-                <a href="#description-{{id_shopping}}" aria-controls="description-{{id_shopping}}" role="tab" data-toggle="tab">
-                  <img src="img/icon-text.png" alt="Descrição">
-                </a>
+                <a href="#parking-{{id_shopping}}" aria-controls="parking-{{id_shopping}}" role="tab" data-toggle="tab">Estacionamento</a>
               </li>
             </ul>
 
             <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="location-{{id_shopping}}">
-                {{# ifNot email_shopping ''}}
-                  <div><b>Email: </b>{{email_shopping}}</div>
-                {{/ifNot}}
-
-                {{# ifNot contact_number_shopping ''}}
-                  <div><b>Telefone: </b>{{contact_number_shopping}}</div>
-                {{/ifNot}}
-
-                {{# ifNot address_shopping ''}}
-                  <div><b>Localidade: </b>{{address_shopping}}</div>
-                {{/ifNot}}
-
-                {{# ifNot city_shopping ''}}
-                  <div><b>Cidade: </b>{{city_shopping}}</div>
-                {{/ifNot}}
-
-                {{# ifNot state_shopping ''}}
-                  <div><b>Estado: </b>{{state_shopping}}</div>
-                {{/ifNot}}
-
-                <br><br>
-
-                <div class="btn-group">
-                  <button class="btn btn-default call-external-service" data-service="map" data-param="{{address_shopping}}, {{city_shopping}}, {{state_shopping}}">
-                    <span class="glyphicon glyphicon-map-marker"></span> Mapa
-                  </button>
-
-                  {{#ifNot contact_number_shopping ''}}
-                    <button class="btn btn-default call-external-service" data-service="phone" data-param="{{contact_number_shopping}}">
-                      <span class="glyphicon glyphicon-earphone"></span> Ligar
-                    </button>
-                  {{/ifNot}}
-
-                  {{#ifNot email_shopping ''}}
-                    <button class="btn btn-default call-external-service" data-service="email" data-param="{{email_shopping}}">
-                      <span class="glyphicon glyphicon-envelope"></span> Enviar email
-                    </a>
-                  {{/ifNot}}
-                </div>
+              <div role="tabpanel" class="tab-pane active" id="description-{{id_shopping}}">
+                <p>
+                  {{#ifCond description_shopping ''}}
+                    Sem descrição
+                  {{else}}
+                    {{nl2br description_shopping}}
+                  {{/ifCond}}
+                </p>
               </div>
 
               <div role="tabpanel" class="tab-pane" id="parking-{{id_shopping}}">
@@ -86,18 +73,8 @@
                   {{/ifCond}}
                 </p>
               </div>
-
-              <div role="tabpanel" class="tab-pane" id="description-{{id_shopping}}">
-                <p>
-                  {{#ifCond description_shopping ''}}
-                    Sem descrição
-                  {{else}}
-                    {{nl2br description_shopping}}
-                  {{/ifCond}}
-                </p>
-              </div>
             </div>
-          </div>
+          </div> <!-- tab -->
         </div> <!-- card-content -->
       </div> <!-- card -->
     {{/each}}

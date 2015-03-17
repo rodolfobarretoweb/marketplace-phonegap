@@ -18,36 +18,37 @@
         </div> <!-- loading -->
 
         <header id="main-header">
-            <div id="main-header-topbar">
-                <div class="row">
-                    <div class="col-xs-11 col-sm-11">
-                        <h1>Shoppings Brasil</h1>
-                    </div>
+            <div class="container-fluid">
+                <div id="main-header-topbar">
+                    <div class="row">
+                        <div class="col-xs-11 col-sm-11">
+                            <h1>Shoppings Brasil</h1>
+                        </div>
 
-                    <div class="col-xs-1 col-sm-1">
-                        <button class="pull-right" id="trigger-main-search">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
+                        <div class="col-xs-1 col-sm-1">
+                            <button class="pull-right" id="trigger-main-search">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </div> <!-- topbar -->
+                </div> <!-- topbar -->
 
-            <div id="main-header-search" class="hidden">
-                <div class="row">
-                    <div class="col-xs-2 col-sm-2">
-                        <button id="main-header-search-back-button">
-                            <span class="glyphicon glyphicon-menu-left"></span>
-                        </button>
+                <div id="main-header-search" class="hidden">
+                    <div class="row">
+                        <div class="col-xs-2 col-sm-2">
+                            <button id="main-header-search-back-button">
+                                <span class="glyphicon glyphicon-menu-left"></span>
+                            </button>
+                        </div>
+
+                        <div class="col-xs-10 col-sm-10">
+                            <form method="post" action="#">
+                                <input type="search" name="search" placeholder="Pesquisar por shoppings ou cidades" id="main-header-search-field" required="yes">
+                            </form> <!-- search -->
+                        </div>
                     </div>
-
-                    <div class="col-xs-10 col-sm-10">
-                        <form method="post" action="#">
-                            <input type="search" name="search" placeholder="Pesquisar por shoppings, cidades ou estados" id="main-header-search-field" required="yes">
-                        </form> <!-- search -->
-                    </div>
-                </div>
-            </div> <!-- form search -->
-
+                </div> <!-- form search -->
+            </div>
         </header> <!-- header -->
 
         <div class="container-fluid" id="content"></div>
