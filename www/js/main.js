@@ -51,7 +51,9 @@ Module('Main', function(Main){
       } else {
         interface.toast("GPS desativado, buscando shoppings aleatórios");
 
-        _this.getShoppings();
+        _this.getShoppings({
+          'limit' : 20
+        });
       }
     });
   };

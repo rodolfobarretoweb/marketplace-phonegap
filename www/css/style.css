@@ -2,6 +2,7 @@
 body {
   background: #f1f1f1;
   padding-top: 80px;
+  overflow-x: hidden;
 }
 
 p {
@@ -136,7 +137,7 @@ input:focus, button:focus {
 
 /* Icons of content (call external services) */
 #call-external-service {
-  padding: 10px; 
+  padding: 10px;
 }
 
 #call-external-service button{
