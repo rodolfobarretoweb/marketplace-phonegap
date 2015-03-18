@@ -49,7 +49,7 @@ Handlebars.registerHelper('character_limit', function(str, limit) {
 });
 
 Handlebars.registerHelper('get_thumb', function(photo){
-  if(photo != null) {
+  if(photo !== null) {
     var thumb = photo.split('.jpg');
     thumb = thumb[0] + '_thumb.jpg';
 

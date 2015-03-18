@@ -3,7 +3,7 @@ Module('Main', function(Main){
       interface = new Interface(),
       _this;
 
-  Main.fn.initialize = function() { 
+  Main.fn.initialize = function() {
     this.callExternalServiceLoading();
 
     // get reference of object
@@ -17,7 +17,7 @@ Module('Main', function(Main){
         _this.seachShoppings();
       });
     });
-        
+
     base.onResume(function(){
       interface.destroyLoading();
     });
@@ -32,7 +32,7 @@ Module('Main', function(Main){
       _this.getShoppings({
         'query' : $.trim(main_header_search_field.val())
       });
-      
+
       main_header_search_field.blur();
 
       return false;
@@ -41,18 +41,18 @@ Module('Main', function(Main){
 
   Main.fn.getShoppingsByPosition = function(){
     base.getPosition(function(position, error){
-      if(error == null) {
+      if(error === null) {
 
         // get shopping by gps postion
         _this.getShoppings({
-          'lat' : position.coords.latitude, 
+          'lat' : position.coords.latitude,
           'lng' : position.coords.longitude
         });
       } else {
         interface.toast("GPS desativado, buscando shoppings aleatórios");
 
         _this.getShoppings();
-      }  
+      }
     });
   };
 
@@ -79,7 +79,7 @@ Module('Main', function(Main){
 
       success  : function(json) {
         base.template('main.tpl', json);
-      } 
+      }
     });
   };
 
@@ -106,15 +106,15 @@ Module('Main', function(Main){
         case 'email':
           action = ["action", "VIEW"];
           param  = "mailto:" + param;
-        break;  
+        break;
 
         case 'website':
           action = ["action", "VIEW"];
           param  = param;
-        break;        
+        break;
       }
 
-      navigator.startApp.start([action, [param]], function(message) {}, 
+      navigator.startApp.start([action, [param]], function(message) {},
 
       function(error) {
         interface.destroyLoading();

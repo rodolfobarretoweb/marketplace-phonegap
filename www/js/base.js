@@ -49,8 +49,8 @@ Module('Base', function(Base){
     if(this.typeConnection() != 'No network connection') {
       calbackSuccess();
     } else {
-      if(callbackError == undefined) {
-        this.template('no_connection.tpl', '');  
+      if(callbackError === undefined) {
+        this.template('no_connection.tpl', '');
       } else {
         callbackError();
       }
@@ -67,7 +67,7 @@ Module('Base', function(Base){
         callback(null, error.message);
       },
 
-      { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true } 
+      { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }
     );
   };
 });
