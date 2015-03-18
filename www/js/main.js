@@ -12,7 +12,6 @@ Module('Main', function(Main){
     base.deviceReady(function(){
       base.hasConnection(function(){
         // call all methods when device is ready
-        interface.createLoading();
         _this.getShoppingsByPosition();
         _this.seachShoppings();
       });
@@ -29,17 +28,20 @@ Module('Main', function(Main){
     var main_header_search_field = $("#main-header-search-field");
 
     $('#main-header-search').submit(function(){
+      main_header_search_field.blur();
+
       _this.getShoppings({
         'query' : $.trim(main_header_search_field.val())
       });
-
-      main_header_search_field.blur();
 
       return false;
     });
   };
 
   Main.fn.getShoppingsByPosition = function(){
+    // Call loading (long operation)
+    interface.createLoading();
+
     base.getPosition(function(position, error){
       if(error === null) {
 
