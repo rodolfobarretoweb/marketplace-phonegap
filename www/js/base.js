@@ -1,15 +1,16 @@
 Module('Base', function(Base){
   // CONSTANTS
   var BASE_URL     = 'http://secondjob.com.br/marketplace/',
-      BASE_URL_API = BASE_URL + 'api-v1/',
-      _navigator   = navigator,
-      _document    = document;
+      BASE_URL_API = BASE_URL + 'api-v1/';
 
-  Base.fn.template = function(file, data){
-    var template = TPL['www/views/' + file];
-    $.extend(data, {base_url : BASE_URL});
+  Base.fn.compileTemplate = function(html, data, container){
+    var template = Handlebars.compile(html);
 
-    $('#content').html(template(data));
+    if(container === undefined) {
+      container = $('#content');
+    }
+    
+    container.html(template(data));
   };
 
   Base.fn.setUrlAPI = function(target){
@@ -18,19 +19,19 @@ Module('Base', function(Base){
 
   // events
   Base.fn.deviceReady = function(callback) {
-    _document.addEventListener("deviceready", callback, false);
+    document.addEventListener("deviceready", callback, false);
   };
 
   Base.fn.backButton = function(callback){
-    _document.addEventListener("backbutton", callback, false);
+    document.addEventListener("backbutton", callback, false);
   };
 
   Base.fn.onResume = function(callback){
-    _document.addEventListener("resume", callback, false);
+    document.addEventListener("resume", callback, false);
   };
 
   Base.fn.typeConnection = function() {
-    var network_status = _navigator.connection.type,
+    var network_status = navigator.connection.type,
         states = {};
 
     states[Connection.UNKNOWN]  = 'Unknown connection';
@@ -50,7 +51,7 @@ Module('Base', function(Base){
       calbackSuccess();
     } else {
       if(callbackError === undefined) {
-        this.template('no_connection.tpl', '');
+        window.location.href = "connectionless.html";
       } else {
         callbackError();
       }
@@ -58,7 +59,7 @@ Module('Base', function(Base){
   };
 
   Base.fn.getPosition = function(callback) {
-    _navigator.geolocation.getCurrentPosition(
+    navigator.geolocation.getCurrentPosition(
       function(position){
         callback(position, null);
       },

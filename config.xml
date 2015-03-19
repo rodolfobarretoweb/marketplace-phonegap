@@ -9,7 +9,7 @@
     <author email="rodolfobarretoweb@gmail.com" href="http://secondjob.com.br">
         Secondjob
     </author>
-    <content src="app.html" />
+    <content src="main.html" />
 
     <!-- preference -->
     <preference name="permissions" value="none" />

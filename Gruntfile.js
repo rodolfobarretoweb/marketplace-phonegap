@@ -4,18 +4,6 @@ module.exports = function(grunt) {
   var gruntConfig = {
     pkg: grunt.file.readJSON('package.json'),
 
-    handlebars: {
-      options: {
-        namespace: "TPL"
-      },
-
-      all: {
-        files: {
-          "www/js/templates.js" : ["www/views/**/*.tpl"]
-        }
-      }
-    },
-
     uglify: {
       my_target: {
         files: {
@@ -26,11 +14,11 @@ module.exports = function(grunt) {
             'www/js/libs/bootstrap.min.js',
             'www/js/libs/handlebars.min.js',
             'www/js/helpers.js',
-            'www/js/templates.js',
             'www/js/index.js',
             'www/js/base.js',
             'www/js/interface.js',
-            'www/js/main.js'
+            'www/js/main.js',
+            'www/js/search.js'
           ]
         }
       }
@@ -59,7 +47,6 @@ module.exports = function(grunt) {
         'www/js/helpers.js',
         'www/js/index.js',
         'www/js/base.js',
-        'www/js/interface.js',
         'www/js/main.js'
       ]
     }
@@ -70,9 +57,8 @@ module.exports = function(grunt) {
   // load plugins
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-handlebars');
   grunt.loadNpmTasks('grunt-contrib-jshint');
 
   // tasks
-  grunt.registerTask('default', ['handlebars', 'uglify','cssmin', 'jshint']);
+  grunt.registerTask('default', ['uglify','cssmin', 'jshint']);
 };

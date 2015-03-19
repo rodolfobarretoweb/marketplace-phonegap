@@ -45,18 +45,18 @@ input:focus, button:focus {
 #main-header h1 {
   font-size: 1.2em;
   color: #fff;
-  padding:23px 0px 20px 0px;
-}
-
-#trigger-main-search{
-  background: none;
-  border: none;
-  color:#fff;
   padding:20px 0px 20px 0px;
 }
 
+#main-header .glyphicon{
+  background: none;
+  border: none;
+  color:#fff;
+  padding:22px 0px 20px 0px;
+}
+
 /* Main search */
-#main-header-search-field {
+#main-header-search input {
   background: none;
   border: none;
   width: 100%;
@@ -73,11 +73,11 @@ input:focus, button:focus {
   color: #fff;
 }
 
-#main-header-search-back-button{
+#main-header-search .glyphicon{
   border: none;
   background: none;
   color: #fff;
-  padding:20px 0px 20px 0px;
+  padding:23px 0px 20px 0px;
 }
 
 /* centralizes columns */

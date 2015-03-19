@@ -1,6 +1,7 @@
 Module('Main', function(Main){
-  var base      = new Base(),
-      interface = new Interface(),
+  var base          = new Base(),
+      interface     = new Interface(),
+      main_template = $('#main-template'),
       _this;
 
   Main.fn.initialize = function() {
@@ -10,31 +11,15 @@ Module('Main', function(Main){
     _this = this;
 
     base.deviceReady(function(){
-      base.hasConnection(function(){
-        // call all methods when device is ready
-        _this.getShoppingsByPosition();
-        _this.seachShoppings();
-      });
+      if(main_template.length > 0) {
+        base.hasConnection(function(){
+          _this.getShoppingsByPosition();
+        });
+      }
     });
 
     base.onResume(function(){
       interface.destroyLoading();
-    });
-  };
-
-  Main.fn.seachShoppings = function() {
-    _this = this;
-
-    var main_header_search_field = $("#main-header-search-field");
-
-    $('#main-header-search').submit(function(){
-      main_header_search_field.blur();
-
-      _this.getShoppings({
-        'query' : $.trim(main_header_search_field.val())
-      });
-
-      return false;
     });
   };
 
@@ -44,23 +29,26 @@ Module('Main', function(Main){
 
     base.getPosition(function(position, error){
       if(error === null) {
-
-        // get shopping by gps postion
         _this.getShoppings({
           'lat' : position.coords.latitude,
           'lng' : position.coords.longitude
+        }, function(json){
+          base.compileTemplate(main_template.html(), json);
         });
+
       } else {
         interface.toast("GPS desativado, buscando shoppings aleatórios");
 
         _this.getShoppings({
           'limit' : 20
+        }, function(json){
+          base.compileTemplate(main_template.html(), json);
         });
       }
     });
   };
 
-  Main.fn.getShoppings = function(filters) {
+  Main.fn.getShoppings = function(filters, callback) {
     $.ajax({
       url        : base.setUrlAPI('shopping/get/'),
       type       : 'get',
@@ -82,7 +70,7 @@ Module('Main', function(Main){
       },
 
       success  : function(json) {
-        base.template('main.tpl', json);
+        callback(json);
       }
     });
   };
