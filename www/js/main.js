@@ -88,6 +88,7 @@ Module('Main', function(Main){
 
       success  : function(json) {
         callback(json);
+        interface.goToTop();
       }
     });
   };

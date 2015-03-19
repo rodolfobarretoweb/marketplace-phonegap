@@ -17,8 +17,7 @@ module.exports = function(grunt) {
             'www/js/index.js',
             'www/js/base.js',
             'www/js/interface.js',
-            'www/js/main.js',
-            'www/js/search.js'
+            'www/js/main.js'
           ]
         }
       }

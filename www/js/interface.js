@@ -4,6 +4,9 @@ Module('Interface', function(Interface){
 
    /* Global use of methods */
   Interface.fn.initialize = function() {
+    // get reference of object
+    _this = this;
+
     this.actionsTopBar();
   };
 
@@ -15,6 +18,10 @@ Module('Interface', function(Interface){
     loading.fadeOut();
   };
 
+  Interface.fn.goToTop = function(){
+    $(document).scrollTop(0);
+  };
+
    /* Specific use of methods */
 
   // Actions of top bar
@@ -22,8 +29,6 @@ Module('Interface', function(Interface){
     var main_header_topbar = $('#main-header-topbar'),
         main_header_search = $('#main-header-search'),
         main               = new Main();
-
-    _this = this;
 
     $('#trigger-main-search').click(function(){
       main_header_topbar.addClass('hidden');
