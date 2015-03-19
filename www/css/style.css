@@ -45,23 +45,23 @@ input:focus, button:focus {
 #main-header h1 {
   font-size: 1.2em;
   color: #fff;
-  padding:20px 0px 20px 0px;
+  padding:23px 0px 20px 0px;
 }
 
-#main-header .glyphicon{
+#trigger-main-search{
   background: none;
   border: none;
   color:#fff;
-  padding:22px 0px 20px 0px;
+  padding:23px 0px 20px 0px;
 }
 
 /* Main search */
-#main-header-search input {
+#main-header-search-field {
   background: none;
   border: none;
   width: 100%;
   padding:20px 0px 20px 0px;
-  margin-left: -20px;
+  margin: 3px 0px 0px -20px;
   color: #fff;
 }
 
@@ -73,7 +73,7 @@ input:focus, button:focus {
   color: #fff;
 }
 
-#main-header-search .glyphicon{
+#main-header-search-back-button{
   border: none;
   background: none;
   color: #fff;

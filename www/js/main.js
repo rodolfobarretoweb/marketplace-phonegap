@@ -14,6 +14,7 @@ Module('Main', function(Main){
       if(main_template.length > 0) {
         base.hasConnection(function(){
           _this.getShoppingsByPosition();
+          _this.seachShoppings();
         });
       }
     });
@@ -45,6 +46,22 @@ Module('Main', function(Main){
           base.compileTemplate(main_template.html(), json);
         });
       }
+    });
+  };
+
+  Main.fn.seachShoppings = function() {
+    var main_header_search_field = $("#main-header-search-field");
+
+    $('#main-header-search').submit(function(){
+      main_header_search_field.blur();
+
+      _this.getShoppings({
+        'query' : $.trim(main_header_search_field.val())
+      }, function(json){
+        base.compileTemplate(main_template.html(), json);
+      });
+
+      return false;
     });
   };
 

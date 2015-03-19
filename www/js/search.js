@@ -8,9 +8,9 @@ Module('Search', function(Search){
   };
 
   Search.fn.seachShoppings = function() {
-    var main_header_search_field = $("#main-header-search input");
+    var main_header_search_field = $("#main-header-search-field");
 
-    $(document).on('submit', '#main-header-search form', function(){
+    $('#main-header-search').submit(function(){
       main_header_search_field.blur();
 
       main.getShoppings({
