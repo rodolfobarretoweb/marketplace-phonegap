@@ -12,10 +12,8 @@ Module('Main', function(Main){
 
     base.deviceReady(function(){
       if(main_template.length > 0) {
-        base.hasConnection(function(){
-          _this.getShoppingsByPosition();
-          _this.seachShoppings();
-        });
+        _this.getShoppingsByPosition();
+        _this.seachShoppings();
       }
     });
 
@@ -66,30 +64,32 @@ Module('Main', function(Main){
   };
 
   Main.fn.getShoppings = function(filters, callback) {
-    $.ajax({
-      url        : base.setUrlAPI('shopping/get/'),
-      type       : 'get',
-      dataType   : 'json',
-      data       : filters,
-      cache      : true,
-      ifModified : true,
+    base.hasConnection(function(){
+      $.ajax({
+        url        : base.setUrlAPI('shopping/get/'),
+        type       : 'get',
+        dataType   : 'json',
+        data       : filters,
+        cache      : true,
+        ifModified : true,
 
-      beforeSend : function(){
-        interface.createLoading();
-      },
+        beforeSend : function(){
+          interface.createLoading();
+        },
 
-      complete : function() {
-        interface.destroyLoading();
-      },
+        complete : function() {
+          interface.destroyLoading();
+        },
 
-      error: function() {
-        interface.destroyLoading();
-      },
+        error: function() {
+          interface.destroyLoading();
+        },
 
-      success  : function(json) {
-        callback(json);
-        interface.goToTop();
-      }
+        success  : function(json) {
+          callback(json);
+          interface.goToTop();
+        }
+      });
     });
   };
 
