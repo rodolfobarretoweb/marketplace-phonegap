@@ -9,7 +9,10 @@ Module('Base', function(Base){
     if(container === undefined) {
       container = $('#content');
     }
-    
+
+    // inserts environment variables    
+    $.extend(data, {base_url : BASE_URL});
+
     container.html(template(data));
   };
 
