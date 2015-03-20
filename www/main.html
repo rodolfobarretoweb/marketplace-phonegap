@@ -11,7 +11,7 @@
         <script src="dist/js/all.min.js" defer></script>
         <title>Shoppings Brasil</title>
     </head>
-    
+
     <body data-ythreshold="10">
         <div id="loading">
             <img src="img/loader.gif">
@@ -63,7 +63,7 @@
                             <h4>{{city_shopping}}</h4>
                           </hgroup>
                         </div>
-                   
+
                         <div class="card-content">
                           {{#ifNot photo_name_shopping null}}
                             <div class="card-img">
@@ -74,25 +74,25 @@
                           <div id="call-external-service" class="row">
                             <div class="col-xs-3 col-sm-3">
                               <button data-service="map" data-param="{{address_shopping}}, {{city_shopping}}, {{state_shopping}}" {{#ifCond address_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
-                                <span class="glyphicon glyphicon-map-marker"></span> 
+                                <span class="glyphicon glyphicon-map-marker"></span>
                               </button>
                             </div>
 
                             <div class="col-xs-3 col-sm-3">
                               <button data-service="phone" data-param="{{contact_number_shopping}}" {{#ifCond contact_number_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
-                                <span class="glyphicon glyphicon-earphone"></span> 
+                                <span class="glyphicon glyphicon-earphone"></span>
                               </button>
                             </div>
-                          
+
                             <div class="col-xs-3 col-sm-3">
                               <button data-service="email" data-param="{{email_shopping}}" {{#ifCond email_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
-                                <span class="glyphicon glyphicon-envelope"></span> 
+                                <span class="glyphicon glyphicon-envelope"></span>
                               </button>
                             </div>
 
                             <div class="col-xs-3 col-sm-3">
                               <button data-service="website" data-param="{{website_shopping}}" {{#ifCond website_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
-                                <span class="glyphicon glyphicon-link"></span> 
+                                <span class="glyphicon glyphicon-link"></span>
                               </button>
                             </div>
                         </div> <!-- call external service -->
@@ -114,7 +114,7 @@
                                   {{#ifCond description_shopping ''}}
                                     Sem descrição
                                   {{else}}
-                                    {{nl2br description_shopping}}
+                                    {{{description_shopping}}}
                                   {{/ifCond}}
                                 </p>
                               </div>
