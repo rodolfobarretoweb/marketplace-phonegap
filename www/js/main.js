@@ -5,7 +5,7 @@ Module('Main', function(Main){
       _this;
 
   Main.fn.initialize = function() {
-    this.callExternalServiceLoading();
+    this.callExternalService();
 
     // get reference of object
     _this = this;
@@ -83,6 +83,7 @@ Module('Main', function(Main){
 
         error: function() {
           interface.destroyLoading();
+          window.location.href = "error_message.html";
         },
 
         success  : function(json) {
@@ -94,7 +95,7 @@ Module('Main', function(Main){
   };
 
   // Show loading interface when external service is called
-  Main.fn.callExternalServiceLoading = function() {
+  Main.fn.callExternalService = function() {
     $(document).on('click', '#call-external-service button', function(){
       interface.createLoading();
 
