@@ -5,3 +5,4 @@ plugins
 node_modules
 
 www/dist
+.DS_Store
