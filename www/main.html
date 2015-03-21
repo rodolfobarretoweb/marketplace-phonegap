@@ -1,144 +1,144 @@
-  <!DOCTYPE html>
-  <html lang="pt-br">
-      <head>
-          <meta charset="utf-8" />
-          <meta name="format-detection" content="telephone=no" />
-          <meta name="msapplication-tap-highlight" content="no" />
-          <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
-          <link rel="stylesheet" type="text/css" href="dist/css/all.min.css">
-          <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-          <script src="cordova.js"></script>
-          <script src="dist/js/all.min.js" defer></script>
-          <title>Shoppings Brasil</title>
-      </head>
-      
-      <body data-ythreshold="10">
-        <div id="loading">
-          <img src="img/loader.gif">
-        </div> <!-- loading -->
+    <!DOCTYPE html>
+    <html lang="pt-br">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="format-detection" content="telephone=no" />
+            <meta name="msapplication-tap-highlight" content="no" />
+            <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+            <link rel="stylesheet" type="text/css" href="dist/css/all.min.css">
+            <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+            <script src="cordova.js"></script>
+            <script src="dist/js/all.min.js" defer></script>
+            <title>Shoppings Brasil</title>
+        </head>
+        
+        <body data-ythreshold="10">
+          <div id="loading">
+            <img src="img/loader.gif">
+          </div> <!-- loading -->
 
-          <header id="main-header">
-            <div class="container-fluid">
-              <div id="main-header-topbar">
-                <div class="row">
-                  <div class="col-xs-11 col-sm-11">
-                    <h1>Shoppings Brasil</h1>
-                  </div>
-
-                  <div class="col-xs-1 col-sm-1">
-                    <button class="pull-right" id="trigger-main-search">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                  </div>
-                </div>
-              </div> <!-- topbar -->
-
-              <div id="main-header-search" class="hidden">
+            <header id="main-header">
+              <div class="container-fluid">
+                <div id="main-header-topbar">
                   <div class="row">
-                    <div class="col-xs-2 col-sm-2">
-                      <button id="main-header-search-back-button">
-                          <span class="glyphicon glyphicon-menu-left"></span>
+                    <div class="col-xs-11 col-sm-11">
+                      <h1>Shoppings Brasil</h1>
+                    </div>
+
+                    <div class="col-xs-1 col-sm-1">
+                      <button class="pull-right" id="trigger-main-search">
+                          <span class="glyphicon glyphicon-search"></span>
                       </button>
                     </div>
-
-                    <div class="col-xs-10 col-sm-10">
-                      <form method="post" action="#">
-                          <input type="search" name="search" placeholder="Pesquisar por shoppings ou cidades" id="main-header-search-field" required="yes">
-                      </form> <!-- search -->
-                    </div>
                   </div>
-              </div> <!-- form search -->
+                </div> <!-- topbar -->
+
+                <div id="main-header-search" class="hidden">
+                    <div class="row">
+                      <div class="col-xs-2 col-sm-2">
+                        <button id="main-header-search-back-button">
+                            <span class="glyphicon glyphicon-menu-left"></span>
+                        </button>
+                      </div>
+
+                      <div class="col-xs-10 col-sm-10">
+                        <form method="post" action="#">
+                            <input type="search" name="search" placeholder="Pesquisar por shoppings ou cidades" id="main-header-search-field" required="yes">
+                        </form> <!-- search -->
+                      </div>
+                    </div>
+                </div> <!-- form search -->
+              </div>
+            </header> <!-- header -->
+
+            <div class="container-fluid" id="content">
+                <script id="main-template" type="text/x-handlebars-template">
+                    <section>
+                      {{#ifCond response 'success'}}
+                        {{#each data}}
+                          <div class="card">
+                            <div class="card-header">
+                              <hgroup>
+                                <h3>{{character_limit name_shopping 50}}</h3>
+                                <h4>{{city_shopping}}</h4>
+                              </hgroup>
+                            </div>
+                       
+                            <div class="card-content">
+                              {{#ifNot photo_name_shopping null}}
+                                <div class="card-img">
+                                  <img src="{{../../base_url}}assets/uploads/{{get_thumb photo_name_shopping}}" class="img-responsive">
+                                </div>
+                              {{/ifNot}}
+
+                                <div id="call-external-service" class="row">
+                                  <div class="col-xs-3 col-sm-3">
+                                    <button data-service="map" data-param="{{address_shopping}}, {{city_shopping}}, {{state_shopping}}" {{#ifCond address_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
+                                      <span class="glyphicon glyphicon-map-marker"></span>
+                                    </button>
+                                  </div>
+
+                                  <div class="col-xs-3 col-sm-3">
+                                    <button data-service="phone" data-param="{{contact_number_shopping}}" {{#ifCond contact_number_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
+                                      <span class="glyphicon glyphicon-earphone"></span>
+                                    </button>
+                                  </div>
+
+                                  <div class="col-xs-3 col-sm-3">
+                                    <button data-service="email" data-param="{{email_shopping}}" {{#ifCond email_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
+                                      <span class="glyphicon glyphicon-envelope"></span>
+                                    </button>
+                                  </div>
+
+                                  <div class="col-xs-3 col-sm-3">
+                                    <button data-service="website" data-param="{{website_shopping}}" {{#ifCond website_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
+                                      <span class="glyphicon glyphicon-link"></span>
+                                    </button>
+                                  </div>
+                              </div> <!-- call external service -->
+
+                              <div role="tabpanel">
+                                <ul class="nav nav-tabs" role="tablist">
+                                  <li role="presentation" class="active">
+                                    <a href="#description-{{id_shopping}}" aria-controls="description-{{id_shopping}}" role="tab" data-toggle="tab">Descrição</a>
+                                  </li>
+
+                                  <li role="presentation">
+                                    <a href="#parking-{{id_shopping}}" aria-controls="parking-{{id_shopping}}" role="tab" data-toggle="tab">Estacionamento</a>
+                                  </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                  <div role="tabpanel" class="tab-pane active" id="description-{{id_shopping}}">
+                                    <p>
+                                      {{#ifCond description_shopping ''}}
+                                        Sem descrição
+                                      {{else}}
+                                        {{{description_shopping}}}
+                                      {{/ifCond}}
+                                    </p>
+                                  </div>
+
+                                  <div role="tabpanel" class="tab-pane" id="parking-{{id_shopping}}">
+                                    <p>
+                                      {{#ifCond observation_parking_shopping ''}}
+                                        Sem informações
+                                      {{else}}
+                                        {{{observation_parking_shopping}}}
+                                      {{/ifCond}}
+                                    </p>
+                                  </div>
+                                </div>
+                              </div> <!-- tab -->
+                            </div> <!-- card-content -->
+                          </div> <!-- card -->
+                        {{/each}}
+
+                      {{else}}
+                        <p>Infelizmente não conseguimos localizar nenhum registro. :(</p>
+                      {{/ifCond}}
+                    </section>
+                </script>
             </div>
-          </header> <!-- header -->
-
-          <div class="container-fluid" id="content">
-              <script id="main-template" type="text/x-handlebars-template">
-                  <section>
-                    {{#ifCond response 'success'}}
-                      {{#each data}}
-                        <div class="card">
-                          <div class="card-header">
-                            <hgroup>
-                              <h3>{{character_limit name_shopping 50}}</h3>
-                              <h4>{{city_shopping}}</h4>
-                            </hgroup>
-                          </div>
-                     
-                          <div class="card-content">
-                            {{#ifNot photo_name_shopping null}}
-                              <div class="card-img">
-                                <img src="{{../../base_url}}assets/uploads/{{get_thumb photo_name_shopping}}" class="img-responsive">
-                              </div>
-                            {{/ifNot}}
-
-                            <div id="call-external-service" class="row">
-                              <div class="col-xs-3 col-sm-3">
-                                <button data-service="map" data-param="{{address_shopping}}, {{city_shopping}}, {{state_shopping}}" {{#ifCond address_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
-                                  <span class="glyphicon glyphicon-map-marker"></span> 
-                                </button>
-                              </div>
-
-                              <div class="col-xs-3 col-sm-3">
-                                <button data-service="phone" data-param="{{contact_number_shopping}}" {{#ifCond contact_number_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
-                                  <span class="glyphicon glyphicon-earphone"></span> 
-                                </button>
-                              </div>
-                            
-                              <div class="col-xs-3 col-sm-3">
-                                <button data-service="email" data-param="{{email_shopping}}" {{#ifCond email_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
-                                  <span class="glyphicon glyphicon-envelope"></span> 
-                                </button>
-                              </div>
-
-                              <div class="col-xs-3 col-sm-3">
-                                <button data-service="website" data-param="{{website_shopping}}" {{#ifCond website_shopping ''}}disabled="yes" class="service-disabled"{{/ifCond}}>
-                                  <span class="glyphicon glyphicon-link"></span> 
-                                </button>
-                              </div>
-                          </div> <!-- call external service -->
-
-                            <div role="tabpanel">
-                              <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active">
-                                  <a href="#description-{{id_shopping}}" aria-controls="description-{{id_shopping}}" role="tab" data-toggle="tab">Descrição</a>
-                                </li>
-
-                                <li role="presentation">
-                                  <a href="#parking-{{id_shopping}}" aria-controls="parking-{{id_shopping}}" role="tab" data-toggle="tab">Estacionamento</a>
-                                </li>
-                              </ul>
-
-                              <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="description-{{id_shopping}}">
-                                  <p>
-                                    {{#ifCond description_shopping ''}}
-                                      Sem descrição
-                                    {{else}}
-                                      {{{description_shopping}}}
-                                    {{/ifCond}}
-                                  </p>
-                                </div>
-
-                                <div role="tabpanel" class="tab-pane" id="parking-{{id_shopping}}">
-                                  <p>
-                                    {{#ifCond observation_parking_shopping ''}}
-                                      Sem informações
-                                    {{else}}
-                                      {{{observation_parking_shopping}}}
-                                    {{/ifCond}}
-                                  </p>
-                                </div>
-                              </div>
-                            </div> <!-- tab -->
-                          </div> <!-- card-content -->
-                        </div> <!-- card -->
-                      {{/each}}
-
-                    {{else}}
-                      <p>Infelizmente não conseguimos localizar nenhum registro. :(</p>
-                    {{/ifCond}}
-                  </section>
-              </script>
-          </div>
-      </body>
-  </html>
+        </body>
+    </html>
