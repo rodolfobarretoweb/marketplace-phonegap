@@ -9,10 +9,10 @@ module.exports = function(grunt) {
         files: {
           'www/dist/js/all.min.js': 
           [
-            'www/js/libs/jquery.min.js',
-            'www/js/libs/module.min.js',
-            'www/js/libs/bootstrap.min.js',
-            'www/js/libs/handlebars.min.js',
+            'bower_components/jquery/dist/jquery.min.js',
+            'bower_components/bootstrap/dist/js/bootstrap.min.js',
+            'bower_components/module/module.min.js',
+            'bower_components/handlebars/handlebars.min.js',
             'www/js/helpers.js',
             'www/js/index.js',
             'www/js/base.js',
@@ -34,8 +34,8 @@ module.exports = function(grunt) {
         files: {
           'www/dist/css/all.min.css': 
           [
-            'www/css/libs/bootstrap.min.css',
-            'www/css/libs/bootstrap-theme.min.css',
+            'bower_components/bootstrap/dist/css/bootstrap.min.css',
+            'bower_components/bootstrap/dist/css/bootstrap-responsive.min.css',
             'www/css/style.css'
           ]
         }

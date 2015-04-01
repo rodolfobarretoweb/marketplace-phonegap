@@ -1,0 +1,12 @@
+{
+  "name": "marketplace-mobile",
+  "version": "1.0.0",
+  "authors": [
+    "Rodolfo Ribeiro Barreto <rodolfobarretoweb@gmail.com>"
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.3.4",
+    "module": "~1.0.3",
+    "handlebars": "~3.0.0"
+  }
+}

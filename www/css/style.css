@@ -3,6 +3,9 @@ body {
   background: #f1f1f1;
   padding-top: 80px;
   overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-user-select:none;
+  -webkit-overflow-scrolling: touch;
 }
 
 p {
@@ -133,7 +136,6 @@ input:focus, button:focus {
   top:50%;
   left:45%;
 }
-
 
 /* Icons of content (call external services) */
 #call-external-service {

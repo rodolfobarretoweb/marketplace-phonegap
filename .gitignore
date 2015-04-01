@@ -1,8 +1,10 @@
-.cordova
 hooks
 platforms
 plugins
 node_modules
+bower_components
 
 www/dist
+
+.cordova
 .DS_Store
